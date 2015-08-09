@@ -1,20 +1,10 @@
-# Webpack & React - Skeleton
+# Overdue
 
-This is just the basic skeleton that I use to create a new react apps.  I've included all of the things that I like:
+My friend asked me if it was possible to scan a books barcode and look it up some how.  This is a test to see if that's possible.
 
-* React
-* Webpack
-* PostCSS
-* React-Router
-* Babel support
-* Hot reloading and push state
-* ESLint
+## Installing
 
-and more!
-
-## Getting started
-
-To get started you just need to run the following:
+I have no idea why you would want to install this thing but just in case you do here's what to do.
 
     $ npm install
     $ webpack
@@ -22,20 +12,4 @@ To get started you just need to run the following:
 
 Running `npm start` will start webpack and the webpack hot reload server.
 
-## Production Builds
-
-If you want to deploy your assets then run this:
-
-    $ npm run deploy
-
-You'll now have a minified and hashed version of all of your assets.  By default vendor files and css are split out of the main bundle and cached separately.  If you add more vendor files and want them to be split out then make sure you add them to the vendor entrypoint.
-
-## Todo
-
-* Create a better folder structure
-* Add testing framework
-* Choose a flux framework to include
-
-## Contributing
-
-If you have something that you think goes in here then feel free to open an issue, PR, or message me directly at @ChrisKeathley.
+Now go scan away
