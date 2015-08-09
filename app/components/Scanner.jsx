@@ -6,7 +6,7 @@ import Book from './Book'
 const Scanner = React.createClass({
   quarraOpts: {
     inputStream: {
-      size: 640,
+      size: 800,
       singleChannel: false
     },
     locator: {
@@ -26,17 +26,24 @@ const Scanner = React.createClass({
   },
 
   componentDidMount() {
+    Quagga.onProcessed( (result) => {
+      console.log('processed');
+    })
     Quagga.onDetected( (result) => {
+      console.log('detected');
       var code = result.codeResult.code
       this.setState({ codes: this.state.codes.concat([code]) })
     })
+    this.url = window.URL || window.webkitURL || window.mozURL || window.msURL
   },
 
   handleFileChosen(e) {
-    e.preventDefault()
+    console.log('chosen');
     var file = e.currentTarget.files[0]
-      , src = (URL.createObjectURL(e.currentTarget.files[0]))
+      , src = (this.url.createObjectURL(e.currentTarget.files[0]))
       , config = _.extend({}, this.quarraOpts, {src: src})
+
+    console.log('chosen file', config);
 
     Quagga.decodeSingle(config, function(result) {});
   },
@@ -46,7 +53,7 @@ const Scanner = React.createClass({
 
     return (
       <div className='scanner'>
-        <input type="file" capture onChange={ this.handleFileChosen }/>
+        <input type="file" capture onChange={ this.handleFileChosen } />
         { codes }
       </div>
     )
